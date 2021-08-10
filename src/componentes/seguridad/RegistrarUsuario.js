@@ -5,12 +5,12 @@ import {
     Container,
     Grid,
     Icon,
-    Link,
     TextField,
     Typography,
 } from '@material-ui/core';
 import React from 'react';
 import useStyles from '../../theme/useStyles';
+import { Link } from 'react-router-dom';
 
 const RegistrarUsuario = () => {
     const classes = useStyles();
@@ -23,7 +23,7 @@ const RegistrarUsuario = () => {
                             <Icon className={classes.icon}>person_add</Icon>
                         </Avatar>
                         <Typography variant="h5" color="primary">
-                            Registrar Usuario
+                            Registro de Usuario
                         </Typography>
                         <form className={classes.form}>
                             <Grid container spacing={2}>
@@ -60,7 +60,7 @@ const RegistrarUsuario = () => {
                                 </Grid>
                             </Grid>
 
-                            <Link href="/" variant="body1" className={classes.link}>
+                            <Link to="/login" variant="body1" className={classes.link}>
                                 ¿Ya tienes cuenta?. Logeate
                             </Link>
                         </form>

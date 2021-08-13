@@ -26,72 +26,72 @@ const useStyles = makeStyles({
   },
   link: {
     marginTop: 8,
-    fontSize: "1.1rem",
-    fontFamily: "Roboto",
+    fontSize: '1.1rem',
+    fontFamily: 'Roboto',
     lineHeight: 1.5,
     color: theme.palette.primary.main,
-    textDecoration: "none"
+    textDecoration: 'none',
   },
   appBar: {
     paddingTop: 8,
-    paddingBottom: 8
+    paddingBottom: 8,
   },
   grow: {
     flexGrow: 0,
     [theme.breakpoints.up('md')]: {
-      flexGrow: 1
-    }
+      flexGrow: 1,
+    },
   },
   linkAppBarLogo: {
-    display: "inline-flex",
-    alignItems: "center",
-    color: "inherit",
-    textDecoration: "none"
+    display: 'inline-flex',
+    alignItems: 'center',
+    color: 'inherit',
+    textDecoration: 'none',
   },
   mr: {
-    marginRight: 3
+    marginRight: 3,
   },
   buttonIcon: {
     fontSize: 14,
-    padding: 0
+    padding: 0,
   },
   linkAppBarDesktop: {
-    display: "inline-flex",
-    alignItems: "center",
-    padding: "6px 16px",
-    color: "inherit",
-    textDecoration: "none"
+    display: 'inline-flex',
+    alignItems: 'center',
+    padding: '6px 16px',
+    color: 'inherit',
+    textDecoration: 'none',
   },
   list: {
-    width: 250
+    width: 250,
   },
   listItem: {
-    padding: 0
+    padding: 0,
   },
   linkAppBarMobile: {
-    display: "inline-flex",
-    alignItems: "center",
-    width: "100%",
-    padding: "8px 16px",
-    color: "inherit",
-    textDecoration: "none"
+    display: 'inline-flex',
+    alignItems: 'center',
+    width: '100%',
+    padding: '8px 16px',
+    color: 'inherit',
+    textDecoration: 'none',
   },
   listItemIcon: {
-    minWidth: 35
+    minWidth: 35,
   },
   sectionDesktop: {
-    display: "none",
+    display: 'none',
     [theme.breakpoints.up('md')]: {
-      display: "flex"
-    }
+      display: 'flex',
+    },
   },
   sectionMobile: {
-    display: "flex",
+    display: 'flex',
     flexGrow: 1,
     [theme.breakpoints.up('md')]: {
-      display: "none"
-    }
-  }
+      display: 'none',
+    },
+  },
 });
 
 export default useStyles;

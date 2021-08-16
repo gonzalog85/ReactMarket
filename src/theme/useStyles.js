@@ -92,6 +92,107 @@ const useStyles = makeStyles({
       display: 'none',
     },
   },
+  text_title: {
+    fontWeight: 600,
+    color: '#494949',
+    marginBottom: 10,
+  },
+  media: {
+    height: 250,
+    backgroundColor: '#F2F2F2',
+    margin: '15px 15px 0 15px',
+  },
+  price: {
+    float: 'right',
+    padding: '0 20px 0 20px',
+    backgroundColor: '#0f80aa',
+  },
+  text_card: {
+    fontWeight: 'bold',
+    color: '#656565',
+    marginBottom: 8,
+  },
+  paper_img: {
+    backgroundColor: '#F2F2F2',
+  },
+  media_detalle: {
+    width: 380,
+    height: 380,
+    margin: 'auto',
+  },
+  text_detalle: {
+    fontWeight: 500,
+    color: '#494949',
+    marginBottom: 5,
+  },
+  imgProductoCC: {
+    backgroundColor: '#F2F2F2',
+    width: 80,
+    height: 70,
+  },
+  papperPadding: {
+    padding: 20,
+  },
+  gridPC: {
+    margin: 'auto',
+    marginTop: 20,
+  },
+  formControl: {
+    margin: 12,
+  },
+  buttonAnterior: {
+    marginRight: 8,
+  },
+  gridLR: {
+    paddingLeft: 30,
+    paddingBottom: 20,
+    paddingRight: 30,
+  },
+  divider: {
+    marginTop: 12,
+    marginBottom: 12,
+  },
+  imgProductoPC: {
+    backgroundColor: '#F2F2F2',
+    width: 50,
+    height: 40,
+  },
+  text_envio: {
+    lineHeight: 3,
+  },
+  alertNotDelivered: {
+    marginTop: 5,
+    padding: '15px 15px 5px 15px',
+    marginBottom: 20,
+    backgroundColor: '#ffcccc',
+  },
+  alertDelivered: {
+    marginTop: 5,
+    padding: '15px 15px 5px 15px',
+    marginBottom: 20,
+    backgroundColor: '#d6f5d6',
+  },
+  imageUploader: {
+    padding: 0,
+    margin: '-25px auto 15px',
+    width: 0,
+  },
+  avatarPerfil: {
+    width: 130,
+    height: 130,
+    backgroundColor: '#0f80aa',
+  },
+  table: {
+    border: '1px solid #e0e0e0',
+  },
+  iconDelivered: {
+    color: 'green',
+    fontWeight: 900,
+  },
+  iconNotDelivered: {
+    color: 'red',
+    fontWeight: 900,
+  },
 });
 
 export default useStyles;

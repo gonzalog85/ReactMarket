@@ -193,6 +193,13 @@ const useStyles = makeStyles({
     color: 'red',
     fontWeight: 900,
   },
+  avatarPerfilAppBar: {
+    marginRight: 8,
+    backgroundColor: '#F2F2F2',
+  },
+  listSubItem: {
+    padding: '0 0 0 30px',
+  },
 });
 
 export default useStyles;

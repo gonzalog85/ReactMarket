@@ -87,7 +87,7 @@ const MenuMovil = (props) => {
             className={classes.listSubItem}
             onClick={props.clickHandler}
           >
-            <Link className={classes.linkAppBarMobile} to="/">
+            <Link className={classes.linkAppBarMobile} to="/admin/usuarios">
               <ListItemIcon className={classes.listItemIcon}>
                 <Icon>group</Icon>
                 <ListItemText>Usuarios</ListItemText>
@@ -99,7 +99,10 @@ const MenuMovil = (props) => {
             className={classes.listSubItem}
             onClick={props.clickHandler}
           >
-            <Link className={classes.linkAppBarMobile} to="/">
+            <Link
+              className={classes.linkAppBarMobile}
+              to="/admin/listaProductos"
+            >
               <ListItemIcon className={classes.listItemIcon}>
                 <Icon>storefront</Icon>
                 <ListItemText>Productos</ListItemText>
@@ -127,7 +130,7 @@ const MenuMovil = (props) => {
         className={classes.listItem}
         onClick={props.clickHandler}
       >
-        <Link className={classes.linkAppBarMobile} to="/carrito">
+        <Link className={classes.linkAppBarMobile} to="/admin/listaPedidos">
           <ListItemIcon className={classes.listItemIcon}>
             <Icon>shopping_cart</Icon>
             <ListItemText>Mis Pedidos</ListItemText>

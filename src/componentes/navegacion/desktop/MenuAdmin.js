@@ -51,7 +51,7 @@ const MenuAdmin = () => {
         onClose={handleClose}
       >
         <MenuItem className={classes.listItem} onClick={handleClose}>
-          <Link className={classes.linkAppBarMobile} to="/">
+          <Link className={classes.linkAppBarMobile} to="/admin/usuarios">
             <ListItemIcon className={classes.listItemIcon}>
               <Icon>group</Icon>
             </ListItemIcon>
@@ -59,7 +59,7 @@ const MenuAdmin = () => {
           </Link>
         </MenuItem>
         <MenuItem className={classes.listItem} onClick={handleClose}>
-          <Link className={classes.linkAppBarMobile} to="/">
+          <Link className={classes.linkAppBarMobile} to="/admin/listaProductos">
             <ListItemIcon className={classes.listItemIcon}>
               <Icon>storefront</Icon>
             </ListItemIcon>
@@ -67,7 +67,7 @@ const MenuAdmin = () => {
           </Link>
         </MenuItem>
         <MenuItem className={classes.listItem} onClick={handleClose}>
-          <Link className={classes.linkAppBarMobile} to="/">
+          <Link className={classes.linkAppBarMobile} to="/admin/listaPedidos">
             <ListItemIcon className={classes.listItemIcon}>
               <Icon>shopping_cart</Icon>
             </ListItemIcon>

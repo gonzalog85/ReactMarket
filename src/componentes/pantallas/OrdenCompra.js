@@ -18,7 +18,7 @@ import useStyles from '../../theme/useStyles';
 const OrdenCompra = (props) => {
   const { id } = props.match.params;
   const mensajeEnvio = 'No entregado';
-  const mensajePago = 'No pagado';
+  const mensajePago = 'Pagado';
   const classes = useStyles();
   return (
     <Container className={classes.containermt}>
@@ -49,7 +49,7 @@ const OrdenCompra = (props) => {
             METODO DE PAGO
           </Typography>
           <Typography>Metodo: Paypal</Typography>
-          <div className={classes.alertNotDelivered}>
+          <div className={classes.alertDelivered}>
             <Typography variant="body2" className={classes.text_title}>
               {mensajePago}
             </Typography>
@@ -145,7 +145,8 @@ const OrdenCompra = (props) => {
                 </TableRow>
                 <TableRow>
                   <TableCell colSpan={2}>
-                    <Button
+                    {/* boton para el usuario */}
+                    {/* <Button
                       variant="contained"
                       color="primary"
                       size="large"
@@ -156,6 +157,15 @@ const OrdenCompra = (props) => {
                     </Button>
                     <Button variant="contained" size="large" fullWidth>
                       Tarjeta de Credito o Debito
+                    </Button> */}
+                    {/* boton para el admin */}
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      fullWidth
+                    >
+                      MARCAR COMO ENTREGADO
                     </Button>
                   </TableCell>
                 </TableRow>

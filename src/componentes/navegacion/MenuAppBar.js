@@ -14,6 +14,8 @@ import { Link } from 'react-router-dom';
 import MenuCliente from './desktop/MenuCliente';
 import MenuAdmin from './desktop/MenuAdmin';
 import MenuMovil from './movil/MenuMovil';
+import MenuMovilPublico from './movil/MenuMovilPublico';
+import MenuPublico from './desktop/MenuPublico';
 
 const MenuAppBar = () => {
   const [open, setOpen] = useState(false);
@@ -38,23 +40,7 @@ const MenuAppBar = () => {
             <Drawer open={open} onClose={closeToggle}>
               <div className={classes.list}>
                 <List>
-                  {/* <ListItem
-                    button
-                    className={classes.listItem}
-                    onClick={closeToggle}
-                  >
-                    <Link
-                      to="/login"
-                      color="inherit"
-                      underline="none"
-                      className={classes.linkAppBarMobile}
-                    >
-                      <ListItemIcon className={classes.listItemIcon}>
-                        <Icon>person</Icon>
-                      </ListItemIcon>
-                      <ListItemText>Login</ListItemText>
-                    </Link>
-                  </ListItem> */}
+                  {/* <MenuMovilPublico clickHandler={closeToggle} /> */}
                   <MenuMovil clickHandler={closeToggle} />
                 </List>
               </div>
@@ -73,12 +59,7 @@ const MenuAppBar = () => {
               </Link>
             </div>
             <div className={classes.sectionDesktop}>
-              {/* <Button color="inherit" className={classes.buttonIcon}>
-                                <Link to="/login" color="inherit" underline="none" className={classes.linkAppBarDesktop}>
-                                    <Icon className={classes.mr}>person</Icon>
-                                    LOGIN
-                                </Link>
-                            </Button> */}
+              {/* <MenuPublico /> */}
               <MenuCliente />
               <MenuAdmin />
             </div>

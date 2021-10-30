@@ -44,6 +44,7 @@ const RegistrarUsuario = () => {
     // setUsuaio(clearUsuario);
     registrarUsuario(usuario).then(response => {
       console.log('Objeto response que envia el servidor', response);
+      window.localStorage.setItem('token', response.data.token);
     })
   };
 
@@ -132,7 +133,7 @@ const RegistrarUsuario = () => {
               </Grid>
 
               <Link to="/login" variant="body1" className={classes.link}>
-                ¿Ya tienes cuenta?. Logeate
+                ¿Ya tienes cuenta?. Logueate
               </Link>
             </form>
           </Card>

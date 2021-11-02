@@ -78,7 +78,7 @@ const ListaProductos = (props) => {
                   </Button>
                 </TableCell>
               </TableRow>
-            ))}
+            ))};
           </TableBody>
         </Table>
       </TableContainer>

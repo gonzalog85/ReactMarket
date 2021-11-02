@@ -8,11 +8,46 @@ import {
   TextField,
   Button,
 } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import useStyles from '../../theme/useStyles';
 import { Link } from 'react-router-dom';
+import { loginUsuario } from '../../actions/UsuarioAction';
 
-const Login = () => {
+const clearUsuario = {
+  email: '',
+  password: '',
+};
+
+const Login = (props) => {
+  const [usuario, setUsuario] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUsuario((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const loginEventoUsuario = () => {
+
+    loginUsuario(usuario).then((response) => {
+
+      if (response.status === 200) {
+        window.localStorage.setItem('token', response.data.token);
+        console.log('El login fue exitoso', response.data);
+        props.history.push("/");
+      } else {
+        console.log('Las credenciales fueron erroneas', response.data);
+      }
+
+    });
+
+  };
+
   const classes = useStyles();
   return (
     <Container className={classes.containermt}>
@@ -33,6 +68,9 @@ const Login = () => {
                     variant="outlined"
                     fullWidth
                     type="email"
+                    name="email"
+                    value={usuario.email}
+                    onChange={handleChange}
                   />
                 </Grid>
 
@@ -42,11 +80,20 @@ const Login = () => {
                     variant="outlined"
                     fullWidth
                     type="password"
+                    name="password"
+                    value={usuario.password}
+                    onChange={handleChange}
                   />
                 </Grid>
 
                 <Grid item xs={12} className={classes.gridmb}>
-                  <Button variant="contained" fullWidth color="primary">
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    color="primary"
+                    type="submit"
+                    onClick={loginEventoUsuario}
+                  >
                     Ingresar
                   </Button>
                 </Grid>

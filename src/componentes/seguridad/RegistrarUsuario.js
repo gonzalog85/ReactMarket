@@ -22,8 +22,8 @@ const clearUsuario = {
   username: ''
 };
 
-const RegistrarUsuario = () => {
-  const [usuario, setUsuaio] = useState({
+const RegistrarUsuario = (props) => {
+  const [usuario, setUsuario] = useState({
     nombre: '',
     apellido: '',
     email: '',
@@ -33,16 +33,15 @@ const RegistrarUsuario = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUsuaio((prev) => ({
+    setUsuario((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
   const guardarUsuario = () => {
-    // console.log('Mi usuario es: ', usuario);
-    // setUsuaio(clearUsuario);
     registrarUsuario(usuario).then(response => {
+      props.history.push('/');
       console.log('Objeto response que envia el servidor', response);
       window.localStorage.setItem('token', response.data.token);
     })

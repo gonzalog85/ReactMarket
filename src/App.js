@@ -18,14 +18,17 @@ import AgregarProducto from './componentes/pantallas/admin/AgregarProducto';
 import EditarProducto from './componentes/pantallas/admin/EditarProducto';
 import ListaPedidos from './componentes/pantallas/admin/ListaPedidos';
 import { getUsuario } from './actions/UsuarioAction';
+import { useStateValue } from './contexto/store';
 
 function App() {
+
+  const [{ sesionUsuario }, dispatch] = useStateValue();
 
   const [servidorRespuesta, setServidorRespuesta] = useState(false);
 
   useEffect(() => {
     if (!servidorRespuesta) {
-      getUsuario().then(response => {
+      getUsuario(dispatch).then(response => {
         setServidorRespuesta(true);
         console.log('Estado de sesion', response);
       })

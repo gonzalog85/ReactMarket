@@ -9,9 +9,13 @@ import {
 } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useStateValue } from '../../../contexto/store';
 import useStyles from '../../../theme/useStyles';
 
 const MenuCliente = () => {
+
+  const [{ sesionUsuario }, dispatch] = useStateValue();
+
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (e) => {
@@ -42,7 +46,9 @@ const MenuCliente = () => {
               className={classes.avatarPerfilAppBar}
               src="https://www.montagne.com.ar/tecnologias/soft-down/img/campera.png"
             />
-            Gonzalo Gomez
+            {sesionUsuario
+              ? (sesionUsuario.autenticado ? sesionUsuario.usuario.nombre + ' ' + sesionUsuario.usuario.apellido : 'No sesion')
+              : 'No sesion'}
             <Icon>keyboard_arrow_down</Icon>
           </div>
         </Button>

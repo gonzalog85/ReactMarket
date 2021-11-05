@@ -12,7 +12,7 @@ axios.interceptors.request.use((config) => {
 
 }, error => {
     return Promise.reject(error);
-})
+});
 
 const requestGeneric = {
     get: (url) => axios.get(url),

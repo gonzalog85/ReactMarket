@@ -13,6 +13,7 @@ import useStyles from '../../theme/useStyles';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { registrarUsuario } from '../../actions/UsuarioAction';
+import { useStateValue } from '../../contexto/store';
 
 const clearUsuario = {
   nombre: '',
@@ -23,6 +24,9 @@ const clearUsuario = {
 };
 
 const RegistrarUsuario = (props) => {
+
+  const [{ sesionUsuario }, dispatch] = useStateValue();
+
   const [usuario, setUsuario] = useState({
     nombre: '',
     apellido: '',
@@ -40,7 +44,7 @@ const RegistrarUsuario = (props) => {
   };
 
   const guardarUsuario = () => {
-    registrarUsuario(usuario).then(response => {
+    registrarUsuario(usuario, dispatch).then(response => {
       props.history.push('/');
       console.log('Objeto response que envia el servidor', response);
       window.localStorage.setItem('token', response.data.token);
@@ -89,7 +93,7 @@ const RegistrarUsuario = (props) => {
                     variant="outlined"
                     fullWidth
                     name="username"
-                    value={usuario.usrname}
+                    value={usuario.username}
                     onChange={handleChange}
                   />
                 </Grid>

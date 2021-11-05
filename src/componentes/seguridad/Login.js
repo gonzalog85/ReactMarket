@@ -12,6 +12,7 @@ import React, { useState } from 'react';
 import useStyles from '../../theme/useStyles';
 import { Link } from 'react-router-dom';
 import { loginUsuario } from '../../actions/UsuarioAction';
+import { useStateValue } from '../../contexto/store';
 
 const clearUsuario = {
   email: '',
@@ -19,6 +20,9 @@ const clearUsuario = {
 };
 
 const Login = (props) => {
+
+  const [{ sesionUsuario }, dispatch] = useStateValue();
+
   const [usuario, setUsuario] = useState({
     email: '',
     password: '',
@@ -34,7 +38,7 @@ const Login = (props) => {
 
   const loginEventoUsuario = () => {
 
-    loginUsuario(usuario).then((response) => {
+    loginUsuario(usuario, dispatch).then((response) => {
 
       if (response.status === 200) {
         window.localStorage.setItem('token', response.data.token);
@@ -60,8 +64,9 @@ const Login = (props) => {
             <Typography variant="h5" color="primary">
               Ingrese su Usuario
             </Typography>
-            <form className={classes.form}>
+            <form className={classes.form} onSubmit={(e) => e.preventDefault()}>
               <Grid container spacing={2}>
+
                 <Grid item xs={12} className={classes.gridmb}>
                   <TextField
                     label="Email"

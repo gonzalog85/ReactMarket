@@ -13,8 +13,12 @@ import React, { useEffect, useState } from 'react';
 import { getProductos } from '../../actions/ProductoAction';
 import useStyles from '../../theme/useStyles';
 import { ProductoArray } from '../data/dataPrueba';
+import { useStateValue } from '../../contexto/store'
+import { addItem } from '../../actions/CarritoCompraAction';
 
 const Productos = (props) => {
+
+  const [{ sesionCarritoCompra }, dispatch] = useStateValue()
 
   const [requestProductos, setRequestProductos] = useState({
     pageIndex: 1,
@@ -45,16 +49,21 @@ const Productos = (props) => {
     getListaProductos();
   }, [requestProductos])
 
-  const miArray = ProductoArray;
-  const verProducto = (id) => {
-    props.history.push('/detalleProducto/' + id);
-  };
+  const miArray = ProductoArray
 
-  const classes = useStyles();
+  const verProducto = async (item) => {
+
+    //await addItem(sesionCarritoCompra, item, dispatch)
+
+    props.history.push('/detalleProducto/' + item.id)
+  }
+
+  const classes = useStyles()
 
   if (!paginadorProductos.data) {
     return null;
   }
+
   return (
     <Container className={classes.containermt}>
       <Typography variant="h4" className={classes.text_title}>
@@ -81,7 +90,7 @@ const Productos = (props) => {
                   variant="contained"
                   color="primary"
                   fullWidth
-                  onClick={() => verProducto(data.id)}
+                  onClick={() => verProducto(data)}
                 >
                   MAS DETALLES
                 </Button>
@@ -92,7 +101,7 @@ const Productos = (props) => {
       </Grid>
       <Pagination count={paginadorProductos.pageCount} page={paginadorProductos.pageIndex} onChange={handleChange} />
     </Container>
-  );
-};
+  )
+}
 
 export default Productos;

@@ -3,7 +3,6 @@ import {
   Container,
   Grid,
   Table,
-  TextField,
   TableCell,
   TableBody,
   TableContainer,
@@ -15,13 +14,25 @@ import {
   Icon,
   Divider,
   Button,
+  Select,
 } from '@material-ui/core';
 import React from 'react';
+import { useStateValue } from '../../contexto/store';
 import useStyles from '../../theme/useStyles';
 import { ProductoArray } from '../data/dataPrueba';
 
 const CarritoCompras = (props) => {
-  const miArray = ProductoArray;
+
+  const [{ sesionCarritoCompra }, dispatch] = useStateValue();
+  console.log('sesionCarritoCompra', sesionCarritoCompra);
+
+  const miArray = sesionCarritoCompra ? sesionCarritoCompra.items : [] /*ProductoArray*/
+  let suma = 0;
+  miArray.forEach(prod => {
+    suma += prod.precio
+  })
+
+
   const realizarCompra = () => {
     props.history.push('/procesoCompra');
   };
@@ -36,33 +47,29 @@ const CarritoCompras = (props) => {
           <TableContainer>
             <Table>
               <TableBody>
-                {miArray.map((producto) => (
-                  <TableRow key={producto.key}>
+                {miArray.map((item) => (
+                  <TableRow key={item.id}>
                     <TableCell>
                       <CardMedia
                         className={classes.imgProductoCC}
                         image="https://www.montagne.com.ar/tecnologias/soft-down/img/campera.png"
-                        title="imagen en carrito"
+                        title={item.producto}
                       />
                     </TableCell>
                     <TableCell>
                       <Typography className={classes.text_detalle}>
-                        {producto.titulo}
+                        {item.producto}
                       </Typography>
                     </TableCell>
                     <TableCell>
                       <Typography className={classes.text_detalle}>
-                        ${producto.precio}
+                        {'$' + item.precio}
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      <TextField select variant="outlined" size="small">
-                        <MenuItem value={1}>1</MenuItem>
-                        <MenuItem value={2}>2</MenuItem>
-                        <MenuItem value={3}>3</MenuItem>
-                        <MenuItem value={4}>4</MenuItem>
-                        <MenuItem value={5}>5</MenuItem>
-                      </TextField>
+                      <Typography className={classes.text_detalle}>
+                        {item.cantidad}
+                      </Typography>
                     </TableCell>
                     <TableCell>
                       <IconButton>

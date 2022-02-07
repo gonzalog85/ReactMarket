@@ -9,7 +9,20 @@ export const getProductos = (request) => {
         instancia.get(
             `/api/producto?pageIndex=${request.pageIndex}&pageSize=${request.pageSize}&search=${request.search}`
         ).then((response) => {
-            resolve(response);
-        });
-    });
-};
+            resolve(response)
+        })
+    })
+}
+
+export const getProducto = (id) => {
+    return new Promise((resolve, eject) => {
+        instancia.get(`/api/producto/${id}`)
+            .then(response => {
+                resolve(response)
+            })
+            .catch(error => {
+                resolve(error.response)
+            })
+    })
+}
+
